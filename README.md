@@ -3,4 +3,4 @@
 
 ##2、<a href="https://github.com/andylidong/Spring-Mybaits/blob/master/%E9%85%8D%E7%BD%AEswagger2">配置swagger2</a>
 
-##3、<a href="">mybaits通过接口访问</a>
+##3、<a href="https://github.com/andylidong/Spring-Mybaits/blob/master/mybaits%E9%80%9A%E8%BF%87%E6%8E%A5%E5%8F%A3%E8%AE%BF%E9%97%AE">mybaits通过接口访问</a>
