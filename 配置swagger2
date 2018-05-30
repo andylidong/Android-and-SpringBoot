@@ -1,0 +1,64 @@
+ 配置swagger2
+ 
+ 1、在pom.xml中配置信息
+       <!-- swagger start -->
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>2.4.0</version>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>2.4.0</version>
+        </dependency>
+        <!-- swagger end -->
+        
+ 2、在spring.xml配置文件中
+    <!-- swagger 配置 ,线上版本需要注释掉 -->
+    <bean class="com.inxedu.os.SwaggerConfiguration"/>
+    <!-- swagger ui resources-->
+    <mvc:default-servlet-handler />
+    
+ 3、配置Class 
+    import org.springframework.context.annotation.Bean;
+    import springfox.documentation.builders.ApiInfoBuilder;
+    import springfox.documentation.builders.PathSelectors;
+    import springfox.documentation.builders.RequestHandlerSelectors;
+    import springfox.documentation.service.ApiInfo;
+    import springfox.documentation.spi.DocumentationType;
+    import springfox.documentation.spring.web.plugins.Docket;
+    import springfox.documentation.swagger2.annotations.EnableSwagger2;
+
+    /**
+    * @ClassName SwaggerConfiguration
+    * @Description: TODO
+    * @Author: lidong
+    * @CreateDate: 2018/5/30$ 2:37 PM$
+    * @UpdateUser: lidong
+    * @UpdateDate: 2018/5/30$ 2:37 PM$
+    * @UpdateRemark: TODO
+    * @Version: 1.0
+    **/
+    @EnableSwagger2
+    public class SwaggerConfiguration {
+
+    @Bean
+    public Docket getApiInfo() {
+      ApiInfo apiInfo = new ApiInfoBuilder()
+              .title("使用Swagger2构建RESTful APIs")
+              .description("客户端与服务端接口文档")
+              .termsOfServiceUrl("http://localost:5000")
+              .contact("andy.li")
+              .version("1.0.0")
+              .build();
+      return new Docket(DocumentationType.SPRING_WEB)
+              .apiInfo(apiInfo)
+              .select()
+              .apis(RequestHandlerSelectors.basePackage("com.inxedu.os"))
+              .paths(PathSelectors.any())
+              .build();
+      }
+    }
+  
+  4、在controller中添加自己配置的信息API等
