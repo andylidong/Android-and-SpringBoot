@@ -96,5 +96,3 @@
     </generatorConfiguration>
     
   3、点击【Maven Project】->【Plugins】->【mybatis-generator】，右击出现【Run Maven Build】，信息的就会出来了
-
-    </generatorConfiguration>
