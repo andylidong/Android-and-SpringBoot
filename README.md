@@ -4,18 +4,35 @@
 
 1、在pom.xml的文件中添加配置文件
 
-  <!-- mybaits的快捷方式 -->
-  <plugin>
-      <groupId>org.mybatis.generator</groupId>
-      <artifactId>mybatis-generator-maven-plugin</artifactId>
-      <version>1.3.2</version>
-      <configuration>
-          <verbose>true</verbose>
-          <overwrite>true</overwrite>
-      </configuration>
-  </plugin>
+  <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+      <properties>
+          <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+          <spring.version>4.3.17.RELEASE</spring.version>
+          <mybatis.version>3.2.7</mybatis.version>
+          <aspectj.version>1.7.3</aspectj.version>
+          <jdk.version>1.8</jdk.version>
+      </properties>
+
+      <build>
+          ..... 其他的配置信息
+          <plugins>
+              <!-- mybaits的快捷方式 -->
+              <plugin>
+                  <groupId>org.mybatis.generator</groupId>
+                  <artifactId>mybatis-generator-maven-plugin</artifactId>
+                  <version>1.3.2</version>
+                  <configuration>
+                      <verbose>true</verbose>
+                      <overwrite>true</overwrite>
+                  </configuration>
+              </plugin>
+          <plugins>
+      </dependencies>
+  </project>
   
 ------------------------------------------------------------------------------------------------------------------------
+
 2、在resource中添加要配置的信息
 
  1）、配置数据库的信息：（project.properties）
