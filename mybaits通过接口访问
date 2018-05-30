@@ -1,1 +1,25 @@
-
+1、在spring.xml中添加配置信息
+  <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <!-- 配置dao层的信息 -->
+        <property name="basePackage" value="com.**.dao"/>
+        <!-- 配置访问数据库的信息 -->
+        <property name="sqlSessionTemplateBeanName" value="sqlSessionTemplate"/>
+  </bean>
+  
+  2、在映射文件的信息（***.xml）
+     <mapper namespace="com.**.xxXDao">
+  
+  3、在dao层的文件信息中
+    public interface xxXDao {
+      void insert();
+      
+      void delete();
+    }
+    
+  4、在service层文件信息中
+   public class XXXImpl implments XXXX {
+     @Resource
+     private XXXDao xxxDao;
+     
+     *******调用的方法
+   }
