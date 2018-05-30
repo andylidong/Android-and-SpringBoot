@@ -36,8 +36,6 @@
 2、在resource中添加要配置的信息
 
  1）、配置数据库的信息：（project.properties）
-   <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-           xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
            
       #数据库链接配置
       jdbc.url=
@@ -51,7 +49,6 @@
       jdbc.username=root
       #密码
       jdbc.password=root
-    </project>
   
  2)、配置要生成的信息（generatorConfig.xml）
   <?xml version="1.0" encoding="UTF-8"?>
