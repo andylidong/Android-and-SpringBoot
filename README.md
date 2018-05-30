@@ -1,6 +1,9 @@
 # Spring-Mybaits
 通过配置生成代码
+------------------------------------------------------------------------------------------------------------------------
+
 1、在pom.xml的文件中添加配置文件
+
   <!-- mybaits的快捷方式 -->
   <plugin>
       <groupId>org.mybatis.generator</groupId>
@@ -11,8 +14,10 @@
           <overwrite>true</overwrite>
       </configuration>
   </plugin>
-
+  
+------------------------------------------------------------------------------------------------------------------------
 2、在resource中添加要配置的信息
+
  1）、配置数据库的信息：（project.properties）
   #数据库链接配置
   jdbc.url=
@@ -26,6 +31,7 @@
   jdbc.username=root
   #密码
   jdbc.password=root
+  
  2)、配置要生成的信息（generatorConfig.xml）
   <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE generatorConfiguration
@@ -94,5 +100,7 @@
           <!-- geelynote mybatis插件的搭建 -->
       </context>
     </generatorConfiguration>
-    
+   
+  ------------------------------------------------------------------------------------------------------------------------
+  
   3、点击【Maven Project】->【Plugins】->【mybatis-generator】，右击出现【Run Maven Build】，信息的就会出来了
