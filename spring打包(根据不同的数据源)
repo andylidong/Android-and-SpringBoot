@@ -1,1 +1,63 @@
 
+1、其中，数据库信息位于resource的config下，配置入口是jdbc-*.properties,分别是jbdc-beta.properties和jbdc-release.properties
+
+2、pom.xml中需要添加三处内容
+  1）、在manager-web的pom.xml的根节点下添加profiles标签(和build,dependencies标签平级)
+  
+    <profiles>  
+        <profile>  
+            <!-- 发布环境 -->  
+            <id>pro</id>  
+            <properties>  
+                <profiles.active>pro</profiles.active>  
+            </properties>  
+        </profile>  
+        <profile>  
+            <!-- 测试环境 -->  
+            <id>beta</id>  
+            <properties>  
+                <profiles.active>beta</profiles.active>  
+            </properties>  
+            <activation>  
+                <!-- 设置默认激活这个配置 -->  
+                <activeByDefault>true</activeByDefault>  
+            </activation>  
+        </profile>  
+    </profiles>  
+    
+    2）、在build节点下，添加filters和resources节点
+    
+        <finalName>ROOT</finalName>  
+        <!-- 定义了变量配置文件的地址 -->  
+        <filters>  
+            <filter>src/main/resources/config/jdbc-${profiles.active}.properties</filter>  
+        </filters>  
+        <resources>  
+          <resource>  
+              <directory>src/main/resources</directory>  
+              <filtering>true</filtering>  
+          </resource>  
+        </resources>  
+        
+    3）、在build的plugins节点下添加plugin节点。
+    
+     <plugin>  
+         <groupId>org.apache.maven.plugins</groupId>  
+         <artifactId>maven-war-plugin</artifactId>  
+     </plugin>
+     
+3、applicationContext.xml相关配置：
+
+   <context:property-placeholder location="classpath:config/*.properties"  />
+4、打包（点击Execute Maven Goal，在Command line的输入命令）
+  动态打包命令：mvn clean install -PXXX
+  XXX的内容是pom.xml中的profiles.active节点的内容。
+  例如测试环境打包，则命令为
+    mvn clean install -Pbata
+  检测是否打包成功：war包解压后，查看jdbc.properties内容是否替换为环境对应的config下的properties文件内容。
+   
+   
+
+     
+
+
