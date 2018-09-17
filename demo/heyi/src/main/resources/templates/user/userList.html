@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <script type="text/javascript" th:src="@{https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js}"></script>
+    <link th:href="@{https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css}" rel="stylesheet"/>
+    <link th:href="@{/css/default.css}" rel="stylesheet"/>
+    <link rel="icon" th:href="@{/images/favicon.ico}" type="image/x-icon"/>
+    <meta charset="UTF-8"/>
+    <title>用户列表</title>
+</head>
+<body>
+<div class="div-table">
+    <h5>数据存储 Demo </h5>
+    <table class="table table-hover table-condensed">
+        <legend>
+            <strong>用户列表</strong>
+        </legend>
+        <thead>
+        <tr class="text-center">
+            <th>用户编号</th>
+            <th>姓名</th>
+            <th>密码</th>
+            <th>最新登录时间</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="user : ${userList}">
+            <th scope="row" th:text="${user.id}"></th>
+            <td><a th:href="@{/user/update/{userId}?token={token}(userId=${user.id}, token=${token})}"
+                   th:text="${user.name}"></a></td>
+            <td th:text="${user.password}"></td>
+            <td th:text="${#dates.format(user.lastLoginTime, 'yyyy-MM-dd HH:mm:ss')}"></td>
+            <td><a class="btn btn-danger"
+                   th:href="@{/user/delete/{userId}?token={token}(userId=${user.id}, token=${token})}">删除</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <div><a class="btn btn-primary" th:href="@{/user/create?token={token}(token=${token})}" role="button">新增用户</a></div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Hello World!</title>
+    <link th:href="@{/css/default.css}" rel="stylesheet"/>
+    <link rel="icon" th:href="@{/images/favicon.ico}" type="image/x-icon"/>
+</head>
+<body class="body">
+<h1 th:inline="text" style="margin-top: 100px">Hello [[${#httpServletRequest.remoteUser}]]!</h1>
+<div class="div-form">
+    <form th:action="@{/logout}" method="post">
+        <input type="hidden" name="token" th:value="${token}">
+        <input type="submit" value="注销"/>
+    </form>
+    <form th:action="@{/user}" method="get">
+        <input type="hidden" name="token" th:value="${token}">
+        <input type="submit" value="主页"/>
+    </form>
+</div>
+</body>
+</html>

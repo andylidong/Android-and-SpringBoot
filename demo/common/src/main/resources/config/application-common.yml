@@ -1,0 +1,26 @@
+## 配置项目的信息
+config:
+  ## 配置默认管理员的账号（这是写死的，不建议使用，应该使用配置类型的）
+  adminName: admin
+  ## 拦截的地址
+  filterAddress: 10.1.3.156
+  ## 拦截之后应该跳转的地址
+  filterToView: /login/login
+  ## 是否进行拦截
+  enableFilter: true
+  ## 放行的路径
+  passUrl: hello,login,index,demo,andy,demo3,detail,error
+
+## 配置druid的信息
+druid:
+  allowIP: 127.0.0.1
+  denyIP: 10.1.3.155
+  userName: root
+  password: root
+  resetEnable: false
+  urlPatterns: /*
+  initParameter: /druid/*,*.js,*.gif,*.jpg,*.png,*.css,*.ico
+## 自定义信息
+user:
+  tag: This is a demo for test
+  user-name: test

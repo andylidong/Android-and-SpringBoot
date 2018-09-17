@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Spring Security Example </title>
+    <link th:href="@{/css/default.css}" rel="stylesheet" type="text/css"/>
+    <link rel="icon" th:href="@{/images/favicon.ico}" type="image/x-icon"/>
+    <base href="/">
+</head>
+<body class="body">
+<form th:action="@{/login}" method="post" style="margin-top: 100px">
+    <div><label> 账 号 : <input type="text" name="username" th:value="admin"/> </label></div>
+    <div><label> 密 码 : <input type="password" name="password" th:value="admin"/> </label></div>
+    <div><input type="submit" value="登录"/></div>
+    <div th:if="${param.error}">
+        用户名或密码错
+    </div>
+    <div th:if="${param.logout}">
+        您已注销成功
+    </div>
+</form>
+</body>
+</html>

@@ -1,0 +1,103 @@
+{
+  "hints": [],
+  "groups": [
+    {
+      "sourceType": "com.andy.heyi.common.data.ConfigDataYML",
+      "name": "config",
+      "type": "com.andy.heyi.common.data.ConfigDataYML"
+    },
+    {
+      "sourceType": "com.andy.heyi.common.data.DruidDataYML",
+      "name": "druid",
+      "type": "com.andy.heyi.common.data.DruidDataYML"
+    },
+    {
+      "sourceType": "com.andy.heyi.common.data.UserDataYML",
+      "name": "user",
+      "type": "com.andy.heyi.common.data.UserDataYML"
+    }
+  ],
+  "properties": [
+    {
+      "sourceType": "com.andy.heyi.common.data.ConfigDataYML",
+      "name": "config.admin-name",
+      "description": "登录的管理员的账号，写死的，不建议使用",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.andy.heyi.common.data.ConfigDataYML",
+      "name": "config.enable-filter",
+      "description": "是否进行拦截",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.andy.heyi.common.data.ConfigDataYML",
+      "name": "config.filter-address",
+      "description": "拦截的地址",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.andy.heyi.common.data.ConfigDataYML",
+      "name": "config.filter-to-view",
+      "description": "拦截之后跳转的页面",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.andy.heyi.common.data.ConfigDataYML",
+      "name": "config.pass-url",
+      "description": "放行的路径",
+      "type": "java.lang.String[]"
+    },
+    {
+      "sourceType": "com.andy.heyi.common.data.DruidDataYML",
+      "name": "druid.allow-i-p",
+      "description": "允许的访问IP, 设置ip白名单",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.andy.heyi.common.data.DruidDataYML",
+      "name": "druid.deny-i-p",
+      "description": "拒绝的访问IP, 设置ip黑名单，如果allow与deny共同存在时,deny优先于allow",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.andy.heyi.common.data.DruidDataYML",
+      "name": "druid.init-parameter",
+      "description": "忽略过滤的形式",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.andy.heyi.common.data.DruidDataYML",
+      "name": "druid.password",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.andy.heyi.common.data.DruidDataYML",
+      "name": "druid.reset-enable",
+      "description": "是否可以重置数据",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.andy.heyi.common.data.DruidDataYML",
+      "name": "druid.url-patterns",
+      "description": "设置过滤器过滤路径",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.andy.heyi.common.data.DruidDataYML",
+      "name": "druid.user-name",
+      "description": "登录的账号和密码",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.andy.heyi.common.data.UserDataYML",
+      "name": "user.tag",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.andy.heyi.common.data.UserDataYML",
+      "name": "user.user-name",
+      "type": "java.lang.String"
+    }
+  ]
+}

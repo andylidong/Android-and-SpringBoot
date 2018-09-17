@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <script type="text/javascript" th:src="@{https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js}"></script>
+    <link th:href="@{https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css}" rel="stylesheet"/>
+    <link th:href="@{/css/default.css}" rel="stylesheet"/>
+    <link rel="icon" th:href="@{/images/favicon.ico}" type="image/x-icon"/>
+    <meta charset="UTF-8"/>
+    <title>用户管理</title>
+</head>
+
+<body>
+<div class="div-table">
+    <h5>数据存储 Demo</h5>
+
+    <legend>
+        <strong>用户管理</strong>
+    </legend>
+
+    <form th:action="@{/user/{action}(action=${action})}" method="post" class="form-horizontal">
+        <input type="hidden" name="id" th:value="${user.id}"/>
+        <input type="hidden" name="token" th:value="${token}">
+        <div class="form-group">
+            <label class="col-sm-2 control-label"></label>
+            <div class="col-xs-4">
+                <span th:text='${name}'></span>
+                <br/>
+                <span th:text='${password}'></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="user_name" class="col-sm-2 control-label">姓名:</label>
+            <div class="col-xs-4">
+                <input type="" class="form-control" id="user_name" name="name" th:value="${user.name}"
+                       th:field="*{user.name}"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="user_password" class="col-sm-2 control-label">密码:</label>
+            <div class="col-xs-4">
+                <input type="text" class="form-control" id="user_password" name="密码" th:value="${user.password}"
+                       th:field="*{user.password}"/>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <input class="btn btn-primary" type="submit" value="提交"/>&nbsp;&nbsp;
+                <input class="btn" type="button" value="返回" onclick="history.back()"/>
+            </div>
+        </div>
+    </form>
+</div>
+</body>
+</html>
