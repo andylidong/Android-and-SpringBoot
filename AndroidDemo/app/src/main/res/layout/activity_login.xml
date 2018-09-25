@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginActivity">
+
+
+    <TextView
+        android:id="@+id/tv_Name"
+        android:layout_width="0dp"
+        android:layout_height="42dp"
+        android:gravity="center"
+        android:text="用户名"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/et_Name" />
+
+    <EditText
+        android:id="@+id/et_Name"
+        android:layout_width="0dp"
+        android:layout_height="42dp"
+        android:gravity="center"
+        android:text="Andy"
+        app:layout_constraintHorizontal_weight="3"
+        app:layout_constraintLeft_toRightOf="@id/tv_Name"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_Password"
+        android:layout_width="0dp"
+        android:layout_height="42dp"
+        android:gravity="center"
+        android:text="密码"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/et_Password"
+        app:layout_constraintTop_toBottomOf="@+id/tv_Name" />
+
+    <EditText
+        android:id="@+id/et_Password"
+        android:layout_width="0dp"
+        android:layout_height="42dp"
+        android:gravity="center"
+        android:inputType="textPassword"
+        android:text="Andy"
+        app:layout_constraintHorizontal_weight="3"
+        app:layout_constraintLeft_toRightOf="@id/tv_Password"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_Name" />
+
+    <Button
+        android:id="@+id/bt_Save"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:onClick="saveUser"
+        android:text="存"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/bt_Load"
+        app:layout_constraintTop_toBottomOf="@+id/tv_Password" />
+
+    <Button
+        android:id="@+id/bt_Load"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:onClick="loadUser"
+        android:text="读"
+        app:layout_constraintLeft_toRightOf="@id/bt_Save"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_Password" />
+
+    <Button
+        android:id="@+id/bt_Login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:onClick="login"
+        android:text="登录"
+        app:layout_constraintTop_toBottomOf="@+id/bt_Load" />
+
+
+</android.support.constraint.ConstraintLayout>
