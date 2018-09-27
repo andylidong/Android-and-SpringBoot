@@ -1,13 +1,13 @@
 package com.example.dli.androiddemo.contract;
 
-import com.example.dli.androiddemo.base.BaseModel;
-import com.example.dli.androiddemo.base.BaseView;
+import com.example.dli.androiddemo.common.base.BaseModel;
+import com.example.dli.androiddemo.common.base.BaseView;
 import com.example.dli.androiddemo.bean.User;
-import com.example.dli.androiddemo.util.result.Result;
+import com.example.dli.androiddemo.common.util.result.Result;
 
-public class LoginContract {
+public interface LoginContract {
 
-    public interface ILoginModel extends BaseModel {
+    interface ILoginModel extends BaseModel {
         User loadUser();
 
         void saveUser(User user);
@@ -15,7 +15,7 @@ public class LoginContract {
         void login(User user, OnLoginListener loginListener);
     }
 
-    public interface ILoginView extends BaseView {
+    interface ILoginView extends BaseView {
 
         void setUser(User user);
 
@@ -24,7 +24,7 @@ public class LoginContract {
         OnLoginListener getOnLoginListener();
     }
 
-    public interface OnLoginListener {
+    interface OnLoginListener {
 
         void loginSuccess(Result result);
 

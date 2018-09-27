@@ -1,4 +1,4 @@
-package com.example.dli.androiddemo.base;
+package com.example.dli.androiddemo.common.base;
 
 public class BasePresenter<M extends BaseModel, V extends BaseView> implements IPresenter {
 

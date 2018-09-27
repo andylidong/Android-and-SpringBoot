@@ -1,4 +1,4 @@
-package com.example.dli.androiddemo.util.retrofit;
+package com.example.dli.androiddemo.common.util.retrofit;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;

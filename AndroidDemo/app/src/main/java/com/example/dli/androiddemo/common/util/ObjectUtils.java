@@ -1,4 +1,4 @@
-package com.example.dli.androiddemo.util;
+package com.example.dli.androiddemo.common.util;
 
 import android.os.Build;
 import android.support.annotation.Nullable;

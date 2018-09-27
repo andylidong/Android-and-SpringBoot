@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity">
+    tools:context=".view.LoginActivity">
 
 
     <TextView
@@ -80,6 +80,15 @@
         android:onClick="login"
         android:text="登录"
         app:layout_constraintTop_toBottomOf="@+id/bt_Load" />
+
+    <Button
+        android:id="@+id/bt_News"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:onClick="news"
+        android:text="新闻"
+        app:layout_constraintTop_toBottomOf="@+id/bt_Login" />
 
 
 </android.support.constraint.ConstraintLayout>

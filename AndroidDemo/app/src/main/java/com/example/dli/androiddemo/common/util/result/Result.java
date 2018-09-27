@@ -1,4 +1,4 @@
-package com.example.dli.androiddemo.util.result;
+package com.example.dli.androiddemo.common.util.result;
 
 public class Result<T> {
 
@@ -7,13 +7,6 @@ public class Result<T> {
     private String msg;
 
     private T data;
-
-    public Result() {
-    }
-
-    public Result(int i, String s) {
-    }
-
 
     public int getCode() {
         return code;

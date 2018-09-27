@@ -1,4 +1,4 @@
-package com.example.dli.androiddemo.base;
+package com.example.dli.androiddemo.common.base;
 
 import android.support.v7.app.AppCompatActivity;
 

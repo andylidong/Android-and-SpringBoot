@@ -1,4 +1,6 @@
-package com.example.dli.androiddemo.util.retrofit;
+package com.example.dli.androiddemo.common.util.retrofit;
+
+import com.example.dli.androiddemo.common.util.PropertiesUtil;
 
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
@@ -11,9 +13,9 @@ public class RetrofitUtil {
                 .build();
 
         RetrofitUrl retrofitUrl = clazz.getAnnotation(RetrofitUrl.class);
-        String url = "";
+        String url;
         if (retrofitUrl == null) {
-            url = "";
+            url = PropertiesUtil.getValue("baseUrl");
         } else {
             url = retrofitUrl.value();
         }

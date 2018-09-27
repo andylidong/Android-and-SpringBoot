@@ -7,7 +7,7 @@ config:
   ## 拦截之后应该跳转的地址
   filterToView: /login/login
   ## 是否进行拦截
-  enableFilter: true
+  enableFilter: false
   ## 放行的路径
   passUrl: hello,login,index,demo,andy,demo3,detail,error
 

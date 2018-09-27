@@ -1,6 +1,6 @@
 package com.example.dli.androiddemo.component;
 
-import com.example.dli.androiddemo.LoginActivity;
+import com.example.dli.androiddemo.view.LoginActivity;
 import com.example.dli.androiddemo.module.LoginModule;
 
 import javax.inject.Singleton;

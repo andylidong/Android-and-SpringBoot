@@ -1,17 +1,19 @@
-package com.example.dli.androiddemo;
+package com.example.dli.androiddemo.view;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.dli.androiddemo.base.BaseMvpActivity;
+import com.example.dli.androiddemo.R;
 import com.example.dli.androiddemo.bean.User;
+import com.example.dli.androiddemo.common.base.BaseMvpActivity;
+import com.example.dli.androiddemo.common.util.result.Result;
 import com.example.dli.androiddemo.component.DaggerLoginComponent;
 import com.example.dli.androiddemo.contract.LoginContract;
 import com.example.dli.androiddemo.module.LoginModule;
 import com.example.dli.androiddemo.presenter.LoginPresenter;
-import com.example.dli.androiddemo.util.result.Result;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -34,6 +36,7 @@ public class LoginActivity extends BaseMvpActivity<LoginPresenter> implements Lo
         DaggerLoginComponent.builder().loginModule(new LoginModule(this)).build().inject(this);
     }
 
+
     /*************  start  按钮的点击事件 *****************/
 
     public void saveUser(View v) {
@@ -47,6 +50,13 @@ public class LoginActivity extends BaseMvpActivity<LoginPresenter> implements Lo
     public void login(View v) {
         mPresenter.login();
     }
+
+    public void news(View v) {
+        Intent intent = new Intent(this, NewsActivity.class);
+        startActivity(intent);
+    }
+
+    /*************  end  按钮的点击事件 *****************/
 
     @Override
     public void setUser(User user) {

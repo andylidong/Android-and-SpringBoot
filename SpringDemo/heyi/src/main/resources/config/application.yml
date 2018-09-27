@@ -57,3 +57,4 @@ spring:
 
 # 外网请求的ip
 api.address: http://127.0.0.1:9090/
+api.recylerview: https://gank.io/

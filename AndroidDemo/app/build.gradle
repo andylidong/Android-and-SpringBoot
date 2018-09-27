@@ -23,6 +23,9 @@ android {
         androidTestImplementation 'com.android.support.test:runner:1.0.2'
         androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 
+        implementation 'com.android.support:recyclerview-v7:27.1.1'
+        implementation 'com.android.support:design:27.1.1'
+
         // butterknife库
         implementation 'com.jakewharton:butterknife:8.8.1'
         annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
@@ -41,6 +44,11 @@ android {
         implementation 'com.google.dagger:dagger:2.17'
         implementation 'com.google.dagger:dagger-android-support:2.17'
         annotationProcessor 'com.google.dagger:dagger-compiler:2.17'
+        // picasso库
+        implementation 'com.squareup.picasso:picasso:2.71828'
+        // xrecyclerview库
+        implementation 'com.jcodecraeer:xrecyclerview:1.5.9'
+
 
     }
     compileOptions {

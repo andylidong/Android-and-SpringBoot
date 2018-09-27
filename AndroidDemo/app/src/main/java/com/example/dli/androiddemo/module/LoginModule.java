@@ -1,7 +1,7 @@
 package com.example.dli.androiddemo.module;
 
 import com.example.dli.androiddemo.contract.LoginContract;
-import com.example.dli.androiddemo.model.LoginModelImpl;
+import com.example.dli.androiddemo.model.LoginModel;
 
 import javax.inject.Singleton;
 
@@ -21,14 +21,14 @@ public class LoginModule {
 
     @Provides
     @Singleton
-    LoginContract.ILoginView getView() {
+    public LoginContract.ILoginView getView() {
         return mILoginView;
     }
 
     @Provides
     @Singleton
-    LoginContract.ILoginModel getModel() {
-        mILoginModel = new LoginModelImpl();
+    public LoginContract.ILoginModel getModel() {
+        mILoginModel = new LoginModel();
         return mILoginModel;
     }
 }

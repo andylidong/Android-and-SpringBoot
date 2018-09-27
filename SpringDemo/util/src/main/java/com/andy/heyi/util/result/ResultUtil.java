@@ -22,10 +22,10 @@ public class ResultUtil {
      */
     public static String success(Object data) {
         Result result = new Result();
-        result.setCode( ResultCode.SUCCESS );
-        result.setMsg( "success" );
-        result.setData( data );
-        return new JSONObject().toJSONString( result );
+        result.setCode(ResultCode.SUCCESS);
+        result.setMsg("success");
+        result.setData(data);
+        return new JSONObject().toJSONString(result);
     }
 
     /**
@@ -34,7 +34,30 @@ public class ResultUtil {
      * @return
      */
     public static String success() {
-        return success( null );
+        return success(null);
+    }
+
+
+    /**
+     * 当正确时返回的值
+     *
+     * @param data
+     * @return
+     */
+    public static String toJson(Result data) {
+        data.setCode(ResultCode.SUCCESS);
+        data.setMsg("success");
+        return new JSONObject().toJSONString(data);
+    }
+
+    /**
+     * 当正确时返回的值
+     *
+     * @param data
+     * @return
+     */
+    public static String toJson(Object data) {
+        return new JSONObject().toJSONString(data);
     }
 
     /**
@@ -46,8 +69,8 @@ public class ResultUtil {
      */
     public static String error(int code, String msg) {
         Result result = new Result();
-        result.setCode( code );
-        result.setMsg( msg );
-        return new JSONObject().toJSONString( result );
+        result.setCode(code);
+        result.setMsg(msg);
+        return new JSONObject().toJSONString(result);
     }
 }
