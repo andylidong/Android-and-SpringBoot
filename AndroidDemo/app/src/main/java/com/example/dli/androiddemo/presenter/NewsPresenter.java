@@ -15,7 +15,7 @@ public class NewsPresenter extends BasePresenter<NewsContract.INewsModel, NewsCo
         super(model, view);
     }
 
-    public List<News> getList() {
-        return mModel.getList(mView.getOnLoadDataListener());
+    public List<News> getList(int type) {
+        return mModel.getList(type, mView.getOnLoadDataListener());
     }
 }

@@ -44,13 +44,19 @@ android {
         implementation 'com.google.dagger:dagger:2.17'
         implementation 'com.google.dagger:dagger-android-support:2.17'
         annotationProcessor 'com.google.dagger:dagger-compiler:2.17'
-        // picasso库
-        implementation 'com.squareup.picasso:picasso:2.71828'
+        // 支持 GIF 动图，需要添加
+        implementation 'com.facebook.fresco:fresco:0.12.0'
+        implementation 'com.facebook.fresco:animated-gif:0.12.0'
         // xrecyclerview库
         implementation 'com.jcodecraeer:xrecyclerview:1.5.9'
-
-
+        // 滑动退出
+        implementation 'me.imid.swipebacklayout.lib:library:1.1.0'
+        // 动画
+        implementation 'com.github.HpWens:MeiWidgetView:v0.1.2'
+        // 状态栏
+        implementation 'com.jaeger.statusbarutil:library:1.5.1'
     }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -58,4 +64,5 @@ android {
 }
 
 dependencies {
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
 }

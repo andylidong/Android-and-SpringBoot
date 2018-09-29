@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">AndroidDemo</string>
-    <string name="title_activity_news">NewsActivity</string>
+    <string name="title_activity_news">美女新闻</string>
+    <string name="title_activity_photo_drag">图片预览</string>
 </resources>

@@ -1,6 +1,5 @@
 package com.example.dli.androiddemo.view;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -14,6 +13,8 @@ import com.example.dli.androiddemo.component.DaggerLoginComponent;
 import com.example.dli.androiddemo.contract.LoginContract;
 import com.example.dli.androiddemo.module.LoginModule;
 import com.example.dli.androiddemo.presenter.LoginPresenter;
+import com.meis.widget.MeiTextPathView;
+import com.meis.widget.loading.MeiFanView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -27,33 +28,28 @@ public class LoginActivity extends BaseMvpActivity<LoginPresenter> implements Lo
     @BindView(R.id.et_Password)
     EditText userPassword;
 
+    @BindView(R.id.mfv)
+    MeiFanView meiFanView;
+
+    @BindView(R.id.mt_pv)
+    MeiTextPathView meiTextPathView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         ButterKnife.bind(this);
+        // 设置不可以滑动
+        swipeBackLayout.setEnableGesture(false);
         // 调用
         DaggerLoginComponent.builder().loginModule(new LoginModule(this)).build().inject(this);
     }
 
-
     /*************  start  按钮的点击事件 *****************/
 
-    public void saveUser(View v) {
-        mPresenter.saveUser();
-    }
-
-    public void loadUser(View v) {
-        mPresenter.loadUser();
-    }
-
     public void login(View v) {
+        this.stopAnimation();
         mPresenter.login();
-    }
-
-    public void news(View v) {
-        Intent intent = new Intent(this, NewsActivity.class);
-        startActivity(intent);
     }
 
     /*************  end  按钮的点击事件 *****************/
@@ -81,20 +77,38 @@ public class LoginActivity extends BaseMvpActivity<LoginPresenter> implements Lo
 
     @Override
     public void loginSuccess(Result result) {
-        Toast.makeText(this, result.getData().toString(), Toast.LENGTH_SHORT).show();
+        super.startActivity(this, NewsActivity.class);
     }
 
     @Override
-    public void loginFailed() {
-        Toast.makeText(this, "登录失败!", Toast.LENGTH_SHORT).show();
+    public void loginFailed(String result) {
+        Toast.makeText(this, result, Toast.LENGTH_SHORT).show();
+    }
+
+
+    @Override
+    protected void onPostResume() {
+        super.onPostResume();
+        if (meiTextPathView != null)
+            meiTextPathView.startAnimation();
+        if (meiFanView != null)
+            meiFanView.startAnimation();
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
+        this.stopAnimation();
         if (userName != null)
             userName = null;
         if (userPassword != null)
             userPassword = null;
+    }
+
+    private void stopAnimation() {
+        if (meiTextPathView != null)
+            meiTextPathView.stopAnimation();
+        if (meiFanView != null)
+            meiFanView.stopAnimation();
     }
 }

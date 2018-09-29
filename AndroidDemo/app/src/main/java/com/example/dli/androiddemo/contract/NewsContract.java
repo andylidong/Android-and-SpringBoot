@@ -9,7 +9,7 @@ import java.util.List;
 public interface NewsContract {
 
     interface INewsModel extends BaseModel {
-        List<News> getList(OnLoadDataListener onLoadDataListener);
+        List<News> getList(int type, OnLoadDataListener onLoadDataListener);
     }
 
     interface INewsView extends BaseView {

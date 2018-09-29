@@ -1,10 +1,8 @@
 package com.example.dli.androiddemo.common.base;
 
-import android.support.v7.app.AppCompatActivity;
-
 import javax.inject.Inject;
 
-public abstract class BaseMvpActivity<P extends BasePresenter> extends AppCompatActivity {
+public abstract class BaseMvpActivity<P extends BasePresenter> extends BaseActivity {
 
     @Inject
     protected P mPresenter;

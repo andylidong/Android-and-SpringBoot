@@ -32,8 +32,14 @@ public class LoginModel implements LoginContract.ILoginModel {
                 login(user).
                 subscribeOn(Schedulers.io()).
                 observeOn(AndroidSchedulers.mainThread()).
-                subscribe(objectResult -> loginListener.loginSuccess(objectResult)
-                        , throwable -> loginListener.loginFailed()
+                subscribe(objectResult -> {
+                            if (objectResult.getCode() == 200) {
+                                loginListener.loginSuccess(objectResult);
+                                return;
+                            }
+                            loginListener.loginFailed(objectResult.getMsg());
+                        }
+                        , throwable -> loginListener.loginFailed(throwable.getMessage())
                 );
     }
 

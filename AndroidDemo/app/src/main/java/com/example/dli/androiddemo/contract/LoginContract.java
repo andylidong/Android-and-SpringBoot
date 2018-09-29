@@ -28,6 +28,6 @@ public interface LoginContract {
 
         void loginSuccess(Result result);
 
-        void loginFailed();
+        void loginFailed(String result);
     }
 }

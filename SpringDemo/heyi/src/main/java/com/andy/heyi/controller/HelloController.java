@@ -5,6 +5,7 @@ import com.andy.heyi.common.version.ApiVersion;
 import com.andy.heyi.dto.User;
 import com.andy.heyi.service.http.RecylerViewService;
 import com.andy.heyi.util.RestTemplateUtil;
+import com.andy.heyi.util.result.ResultCode;
 import com.andy.heyi.util.result.ResultUtil;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -67,12 +68,12 @@ public class HelloController {
     @PostMapping(value = "login")
     public String login(@Nullable @RequestBody User user) {
         if (ObjectUtils.isEmpty(user) | StringUtils.isEmpty(user.getName()) | StringUtils.isEmpty(user.getPassword())) {
-            return ResultUtil.success("请您输入完整的登录信息！");
+            return ResultUtil.error(ResultCode.USERNAME_OR_PASSWORD_ERROR, "请您输入完整的登录信息！");
         }
         if (user.getName().equalsIgnoreCase("andy") && user.getPassword().equalsIgnoreCase("andy"))
             return ResultUtil.success("登录成功！");
         else {
-            return ResultUtil.success("登录失败！");
+            return ResultUtil.error(ResultCode.USERNAME_OR_PASSWORD_ERROR, "登录失败！");
         }
     }
 

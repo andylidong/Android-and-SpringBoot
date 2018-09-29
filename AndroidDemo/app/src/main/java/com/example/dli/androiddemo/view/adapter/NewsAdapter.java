@@ -1,23 +1,23 @@
 package com.example.dli.androiddemo.view.adapter;
 
 import android.content.Context;
+import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
-
 
 import com.example.dli.androiddemo.R;
 import com.example.dli.androiddemo.bean.News;
-import com.squareup.picasso.Picasso;
+import com.example.dli.androiddemo.common.util.ObjectUtils;
+import com.facebook.drawee.view.SimpleDraweeView;
 
 import java.util.List;
 
 public class NewsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private Context mContext;
-    private List<News> data = null;
+    private List<News> data;
 
     private OnItemClickListener onItemClickListener;
 
@@ -30,14 +30,11 @@ public class NewsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(mContext).inflate(R.layout.news_adapter, parent, false);
+        View view = LayoutInflater.from(mContext).inflate(R.layout.adapter_news, parent, false);
         MyViewHolder holder = new MyViewHolder(view);
         if (onItemClickListener != null) {
-            holder.tv.setOnClickListener(v -> onItemClickListener.onItemClick(v));
-            holder.tv.setOnLongClickListener(v -> {
-                onItemClickListener.onItemLongClick(v);
-                return false;
-            });
+            holder.tv.setOnClickListener(v -> onItemClickListener.onTextClick(v));
+            holder.iv.setOnClickListener(v -> onItemClickListener.onImageClick(v));
         }
         return holder;
     }
@@ -52,7 +49,9 @@ public class NewsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         }
         if (item == null) return;
         ((MyViewHolder) holder).tv.setText(item.getDesc() + "\n" + item.getWho());
-        Picasso.get().load(item.getUrl()).into(((MyViewHolder) holder).iv);
+        if (ObjectUtils.isEmpty(item.getUrl())) return;
+        Uri uri = Uri.parse(item.getUrl());
+        ((MyViewHolder) holder).iv.setImageURI(uri);
     }
 
     @Override
@@ -69,7 +68,7 @@ public class NewsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     class MyViewHolder extends RecyclerView.ViewHolder {
         private TextView tv;
-        private ImageView iv;
+        private SimpleDraweeView iv;
 
         public MyViewHolder(View view) {
             super(view);
@@ -82,8 +81,8 @@ public class NewsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     public interface OnItemClickListener {
 
-        void onItemClick(View view);
+        void onImageClick(View view);
 
-        void onItemLongClick(View view);
+        void onTextClick(View view);
     }
 }
