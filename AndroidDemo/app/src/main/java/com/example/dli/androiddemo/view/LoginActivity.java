@@ -6,7 +6,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.dli.androiddemo.R;
-import com.example.dli.androiddemo.bean.User;
+import com.example.dli.androiddemo.model.bean.User;
 import com.example.dli.androiddemo.common.base.BaseMvpActivity;
 import com.example.dli.androiddemo.common.util.result.Result;
 import com.example.dli.androiddemo.component.DaggerLoginComponent;
@@ -83,16 +83,14 @@ public class LoginActivity extends BaseMvpActivity<LoginPresenter> implements Lo
     @Override
     public void loginFailed(String result) {
         Toast.makeText(this, result, Toast.LENGTH_SHORT).show();
+        this.startAnimation();
     }
 
 
     @Override
     protected void onPostResume() {
         super.onPostResume();
-        if (meiTextPathView != null)
-            meiTextPathView.startAnimation();
-        if (meiFanView != null)
-            meiFanView.startAnimation();
+        this.startAnimation();
     }
 
     @Override
@@ -110,5 +108,12 @@ public class LoginActivity extends BaseMvpActivity<LoginPresenter> implements Lo
             meiTextPathView.stopAnimation();
         if (meiFanView != null)
             meiFanView.stopAnimation();
+    }
+
+    private void startAnimation() {
+        if (meiTextPathView != null)
+            meiTextPathView.startAnimation();
+        if (meiFanView != null)
+            meiFanView.startAnimation();
     }
 }

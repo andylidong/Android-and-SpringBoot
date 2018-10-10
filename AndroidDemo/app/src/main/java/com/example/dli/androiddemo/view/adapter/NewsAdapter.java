@@ -2,6 +2,7 @@ package com.example.dli.androiddemo.view.adapter;
 
 import android.content.Context;
 import android.net.Uri;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,7 +10,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.dli.androiddemo.R;
-import com.example.dli.androiddemo.bean.News;
+import com.example.dli.androiddemo.model.bean.News;
 import com.example.dli.androiddemo.common.util.ObjectUtils;
 import com.facebook.drawee.view.SimpleDraweeView;
 
@@ -31,12 +32,7 @@ public class NewsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(mContext).inflate(R.layout.adapter_news, parent, false);
-        MyViewHolder holder = new MyViewHolder(view);
-        if (onItemClickListener != null) {
-            holder.tv.setOnClickListener(v -> onItemClickListener.onTextClick(v));
-            holder.iv.setOnClickListener(v -> onItemClickListener.onImageClick(v));
-        }
-        return holder;
+        return new MyViewHolder(view);
     }
 
     @Override
@@ -48,10 +44,16 @@ public class NewsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             return;
         }
         if (item == null) return;
-        ((MyViewHolder) holder).tv.setText(item.getDesc() + "\n" + item.getWho());
+        MyViewHolder myViewHolder = (MyViewHolder) holder;
+        if (onItemClickListener != null) {
+            myViewHolder.tv.setOnClickListener(v -> onItemClickListener.onTextClick(item));
+            myViewHolder.iv.setOnClickListener(v -> onItemClickListener.onImageClick(item, ((MyViewHolder) holder).iv));
+        }
+
+        myViewHolder.tv.setText(item.getDesc() + "\n" + item.getWho());
         if (ObjectUtils.isEmpty(item.getUrl())) return;
         Uri uri = Uri.parse(item.getUrl());
-        ((MyViewHolder) holder).iv.setImageURI(uri);
+        myViewHolder.iv.setImageURI(uri);
     }
 
     @Override
@@ -81,8 +83,14 @@ public class NewsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     public interface OnItemClickListener {
 
-        void onImageClick(View view);
+        void onImageClick(News item, SimpleDraweeView iv);
 
-        void onTextClick(View view);
+        void onTextClick(News item);
+    }
+
+
+    class AsyncTasks extends FloatingActionButton.Behavior {
+
+
     }
 }

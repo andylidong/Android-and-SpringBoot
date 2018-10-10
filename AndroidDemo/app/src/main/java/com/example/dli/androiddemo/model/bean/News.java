@@ -1,4 +1,4 @@
-package com.example.dli.androiddemo.bean;
+package com.example.dli.androiddemo.model.bean;
 
 public class News {
 

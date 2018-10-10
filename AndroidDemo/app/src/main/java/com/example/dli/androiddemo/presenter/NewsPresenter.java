@@ -1,6 +1,6 @@
 package com.example.dli.androiddemo.presenter;
 
-import com.example.dli.androiddemo.bean.News;
+import com.example.dli.androiddemo.model.bean.News;
 import com.example.dli.androiddemo.common.base.BasePresenter;
 import com.example.dli.androiddemo.contract.NewsContract;
 

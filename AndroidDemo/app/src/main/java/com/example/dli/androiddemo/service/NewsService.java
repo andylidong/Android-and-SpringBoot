@@ -1,6 +1,6 @@
 package com.example.dli.androiddemo.service;
 
-import com.example.dli.androiddemo.bean.News;
+import com.example.dli.androiddemo.model.bean.News;
 import com.example.dli.androiddemo.common.util.result.Result;
 
 import java.util.List;

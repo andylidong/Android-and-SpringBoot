@@ -1,6 +1,6 @@
 package com.example.dli.androiddemo.model;
 
-import com.example.dli.androiddemo.bean.User;
+import com.example.dli.androiddemo.model.bean.User;
 import com.example.dli.androiddemo.contract.LoginContract;
 import com.example.dli.androiddemo.service.LoginService;
 import com.example.dli.androiddemo.common.util.retrofit.RetrofitUtil;

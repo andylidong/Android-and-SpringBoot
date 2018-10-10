@@ -50,7 +50,6 @@ public class PropertiesUtil {
             }
             props.setProperty(keyName, keyValue);
             props.store(out, null);
-            String value = props.getProperty(keyName);
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -1,6 +1,6 @@
 package com.example.dli.androiddemo.model;
 
-import com.example.dli.androiddemo.bean.News;
+import com.example.dli.androiddemo.model.bean.News;
 import com.example.dli.androiddemo.common.constants.CRecyclerView;
 import com.example.dli.androiddemo.common.util.retrofit.RetrofitUtil;
 import com.example.dli.androiddemo.contract.NewsContract;

@@ -2,7 +2,7 @@ package com.example.dli.androiddemo.contract;
 
 import com.example.dli.androiddemo.common.base.BaseModel;
 import com.example.dli.androiddemo.common.base.BaseView;
-import com.example.dli.androiddemo.bean.User;
+import com.example.dli.androiddemo.model.bean.User;
 import com.example.dli.androiddemo.common.util.result.Result;
 
 public interface LoginContract {
