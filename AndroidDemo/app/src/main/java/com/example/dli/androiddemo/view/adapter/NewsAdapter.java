@@ -13,6 +13,7 @@ import com.example.dli.androiddemo.R;
 import com.example.dli.androiddemo.model.bean.News;
 import com.example.dli.androiddemo.common.util.ObjectUtils;
 import com.facebook.drawee.view.SimpleDraweeView;
+import com.jcodecraeer.xrecyclerview.XRecyclerView;
 
 import java.util.List;
 
@@ -86,11 +87,5 @@ public class NewsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         void onImageClick(News item, SimpleDraweeView iv);
 
         void onTextClick(News item);
-    }
-
-
-    class AsyncTasks extends FloatingActionButton.Behavior {
-
-
     }
 }

@@ -10,8 +10,8 @@ public class DefaultItemTouchHelper extends TempItemTouchHelper {
     public DefaultItemTouchHelper(DefaultItemTouchHelpCallback.OnItemTouchCallbackListener onItemTouchCallbackListener) {
         super(new DefaultItemTouchHelpCallback(onItemTouchCallbackListener));
         itemTouchHelpCallback = (DefaultItemTouchHelpCallback) getCallback();
-        itemTouchHelpCallback.setDragEnable(true);
-        itemTouchHelpCallback.setSwipeEnable(true);
+        this.setDragEnable(true);
+        this.setSwipeEnable(true);
     }
 
     /**
@@ -34,16 +34,6 @@ public class DefaultItemTouchHelper extends TempItemTouchHelper {
 }
 
 class TempItemTouchHelper extends ItemTouchHelper {
-
-    /**
-     * Creates an ItemTouchHelper that will work with the given Callback.
-     * <p>
-     * You can attach ItemTouchHelper to a RecyclerView via
-     * {@link #attachToRecyclerView(RecyclerView)}. Upon attaching, it will add an item decoration,
-     * an onItemTouchListener and a Child attach / detach listener to the RecyclerView.
-     *
-     * @param callback The Callback which controls the behavior of this touch helper.
-     */
 
     private Callback callback;
 

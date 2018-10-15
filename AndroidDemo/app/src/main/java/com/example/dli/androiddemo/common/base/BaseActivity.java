@@ -4,12 +4,8 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.design.widget.NavigationView;
 import android.support.v7.widget.Toolbar;
-import android.view.MenuItem;
-import android.view.View;
 
 import com.example.dli.androiddemo.R;
 import com.jaeger.library.StatusBarUtil;
@@ -47,17 +43,18 @@ public class BaseActivity extends SwipeBackActivity {
         }
     }
 
-    public void startActivity(Context packageContext, Class<?> cls) {
+    protected void startActivity(Context packageContext, Class<?> cls) {
         Intent intent = new Intent(packageContext, cls);
         intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         startActivity(intent);
     }
 
 
-    protected void initToolBar(Activity activity) {
-        Toolbar toolbar = activity.findViewById(R.id.toolbar);
+    protected void initToolBar(Activity currentActivity) {
+        if (currentActivity == null) return;
+        Toolbar toolbar = currentActivity.findViewById(R.id.toolbar);
         if (toolbar == null) return;
-        toolbar.setTitle(activity.getTitle());
+        toolbar.setTitle(currentActivity.getTitle());
         toolbar.setNavigationOnClickListener(v -> onBackPressed());
     }
 

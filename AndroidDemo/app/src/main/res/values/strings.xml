@@ -2,4 +2,6 @@
     <string name="app_name">AndroidDemo</string>
     <string name="title_activity_news">美女新闻</string>
     <string name="title_activity_photo_drag">图片预览</string>
+    <!--动作的命名-->
+    <string name="scale_up_show_behavior">com.example.dli.androiddemo.view.behavior.ScaleDownShowBehavior</string>
 </resources>

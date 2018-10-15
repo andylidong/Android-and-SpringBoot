@@ -21,7 +21,6 @@ import butterknife.ButterKnife;
 
 public class LoginActivity extends BaseMvpActivity<LoginPresenter> implements LoginContract.ILoginView, LoginContract.OnLoginListener {
 
-
     @BindView(R.id.et_Name)
     EditText userName;
 
@@ -45,14 +44,10 @@ public class LoginActivity extends BaseMvpActivity<LoginPresenter> implements Lo
         DaggerLoginComponent.builder().loginModule(new LoginModule(this)).build().inject(this);
     }
 
-    /*************  start  按钮的点击事件 *****************/
-
     public void login(View v) {
         this.stopAnimation();
         mPresenter.login();
     }
-
-    /*************  end  按钮的点击事件 *****************/
 
     @Override
     public void setUser(User user) {

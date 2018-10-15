@@ -44,10 +44,13 @@ public class NewsActivity extends BaseMvpActivity<NewsPresenter> implements News
 
     private List<News> data;
 
+    private LinearLayoutManager layoutManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_news);
+        super.initToolBar(this);
         ButterKnife.bind(this);
         DaggerNewsComponent.builder().newsModule(new NewsModule(this)).build().inject(this);
         mPresenter.getList(CRecyclerView.REFRESH);
@@ -55,9 +58,9 @@ public class NewsActivity extends BaseMvpActivity<NewsPresenter> implements News
     }
 
     private void initView() {
-        super.initToolBar(this);
         // 设置为一个纵向网格布局
-        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        layoutManager = new LinearLayoutManager(this);
+        layoutManager.setSmoothScrollbarEnabled(true);
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         xRecyclerView.setLayoutManager(layoutManager);
         xRecyclerView.setFootViewText("正在加载中，请稍等", "没有更多了呦");
@@ -78,7 +81,7 @@ public class NewsActivity extends BaseMvpActivity<NewsPresenter> implements News
         @Override
         public void onSwiped(int adapterPosition) {
             // 滑动删除的时候，从数据源移除，并刷新这个Item。
-            if (data != null) {
+            if (data != null && data.size() > 1) {
                 data.remove(adapterPosition);
                 newsAdapter.notifyItemRemoved(adapterPosition);
             }
@@ -86,7 +89,7 @@ public class NewsActivity extends BaseMvpActivity<NewsPresenter> implements News
 
         @Override
         public boolean onMove(int srcPosition, int targetPosition) {
-            if (data != null) {
+            if (data != null && data.size() > 0) {
                 // 更换数据源中的数据Item的位置
                 Collections.swap(data, srcPosition, targetPosition);
                 // 更新UI中的Item的位置，主要是给用户看到交互效果
@@ -96,7 +99,6 @@ public class NewsActivity extends BaseMvpActivity<NewsPresenter> implements News
             return false;
         }
     };
-
 
     private XRecyclerView.LoadingListener loadingListener = new XRecyclerView.LoadingListener() {
         @Override
@@ -162,5 +164,6 @@ public class NewsActivity extends BaseMvpActivity<NewsPresenter> implements News
             xRecyclerView = null;
         }
     }
+
 }
 
